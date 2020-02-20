@@ -20,7 +20,7 @@ module.exports = function (passport) {
         let sql = 'SELECT * FROM user WHERE username = ? LIMIT 1';
         con.query(sql, [username], function (err, result) {
             if (err)
-                return err(err);
+                return err;
             if (!result) {
                 return done(null, false, { message: 'Wrong user' });
             }
