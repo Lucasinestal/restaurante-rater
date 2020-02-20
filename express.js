@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const path = require('path');
 const router = express.Router();
 const mysql = require('mysql');
@@ -46,7 +46,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    port: process.env.PORT || "10003",
+    port: "10003",
     database: "restaurantschema"
 });
 
