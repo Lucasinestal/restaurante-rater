@@ -4,11 +4,11 @@ const mysql = require('mysql');
 
 
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    port: "10003",
-    database: "restaurantschema"
+    host: "xav-p-mariadb.xavizus.com",
+    user: "lucas",
+    password: "N7pfFOHZpoy5hXhT",
+    port: "16200",
+    database: "lucas"
 });
 
 
