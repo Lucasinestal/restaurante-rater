@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
+    <link href="/public/feed.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include ('header.ejs') %>
+    <div class="review-container">
+      <% let createPath = '/createReview/' + id %>
+      <form autocomplete="off"class="form-group"action="<%= createPath %>"method="GET">
+      <div class="review-list d-flex flex-column m-5">
+        <button id="rateBtn" class="btn btn-primary mt-5 align-self-center">Skriv en recension</button>
+      </form>
+        <% for(var i=0; i < reviews.length; i++) {%>
+        <div class="review-card bg-grey text-white">
+          <div class="review-info">
+            <div><p ><strong class="text-primary"> Recenserad av:</strong> <%= reviews[i].Username %> | <%= reviews[i].PublishDate.toDateString() %></p></div>
+            <div class="col">
+              <div class="rating-icon"><i class="fa fa-star star"></i></div>
+              <div class="rating-numeric text-primary"><%= reviews[i].Rating %></div>
+            </div>
+            <div class="col">
+              <div class="body-text"><%= reviews[i].Body %></div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

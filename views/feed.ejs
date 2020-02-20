@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+</head>
+<body>
+  <%- include ('header.ejs') %>
+  <div class="content d-flex flex-column container">
+    <% for(var i=0; i < restaurants.length; i++) {%>
+    <div class="review-card bg-grey text-white">
+      <div class="review-thumbnail">
+        <img src="<%= restaurants[i].ImgUrl %>"" />
+      </div>
+      <div class=" review-info">
+        <div class="title"><%= restaurants[i].Name %></div>
+        <div class="col">
+          <div class="rating-icon "><i class="fa fa-star star"></i></div>
+          <%
+          let reviewPath = `/reviews/${restaurants[i].RestaurantId}`
+          let editPath = `/restaurant/${restaurants[i].RestaurantId}`
+           let rating = 0; 
+           let deletePath = `/restaurant/delete/${restaurants[i].RestaurantId}`
+          reviews.map(r =>  { if(r.RestaurantId === restaurants[i].RestaurantId) {
+            rating += r.Rating;
+          }
+        });
+          let reviewsCount = reviews.filter(r =>  r.RestaurantId === restaurants[i].RestaurantId).length 
+          %>
+          <div class="rating-numeric text-primary"><%= Math.round(rating / reviewsCount * 10 ) / 10 %></div>
+          <a class="text-light" href="<%= reviewPath %>"><%= reviewsCount %> Recensioner </a>
+        </div>
+        <div class="col">
+          <div class="price-icon">
+            <% for(var y=0; y < restaurants[i].PriceClass; y++) {%>
+            <i class="fa fa-dollar-sign text-white"></i>
+            <%} %>
+          </div>
+          <div class="dot">&bull;</div>
+          <div class="restaurant-category"> <%= restaurants[i].Categories %></div>
+        </div>
+        <div class="col">
+          <div class="location"><%= restaurants[i].Location %></div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="col">
+          <a href="<%= editPath %>"><i class="fa fa-pen"></i></a>
+          <form autocomplete="off" class="form-group" action="<%= deletePath %>" method="DELETE">
+            <button class="btn-wrapper" type="submit"><i class="fa fa-trash"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%  } %>
+  </div>
+</body>
+
+</html>

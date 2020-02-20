@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="review-card">
+        <% const path = review !== null ? '/review/edit/' + review.RestaurantId  : '/review/edit/0' %>
+        <form autocomplete="off" class="form-group" action="<%= path %>" method="POST">
+            <div>
+                <label>
+                    Titel
+                </label>
+                <% const title = review !== null ? review.Title : '' %>
+                <input name="title" id="title" value="<%= title %>" />
+            </div>
+            <div>
+                <label>
+                    Text
+                </label>
+                <% const body = review !== null ? review.Body : '' %>
+                <textarea name="body" id="body" value="<%= body %>" />
+                </div>
+            
+            <div>
+                    <label>
+                        Betyg
+                    </label>
+                    <% for(var y=0; y < restaurants[i].PriceClass; y++) {%>
+                        <i class="fa fa-star start"></i>
+                   <%} %>
+            </div>
+         
+            <button type="submit">Spara</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+</head>
+<body class="d-flex flex-column mb-5">
+    <%- include ('header.ejs') %>
+<div id="addRestaurantContainer" class="d-flex flex-column align-self-center bg-grey p-5 mt-5 text-light">
+        <% const path = restaurant !== null ? '/restaurant/edit/' + restaurant.RestaurantId  : '/restaurant/edit/0' %>
+        <form autocomplete="off" class="form-group" action="<%= path %>" method="POST">
+                <% const name = restaurant !== null ? restaurant.Name : '' %>
+                <div><h2><%= name %></h2></div>
+                <% const imageUrl = restaurant ? restaurant.ImgUrl : '' %>
+                <img style="height: auto; width: 100%;" src=" <%= imageUrl %>" />
+                <div class="p-2"><p><strong>Redigera/lägg till restaurangprofil nedan</strong></p></div>
+                <div class="row p-3 justify-content-center">
+                    <div class="flex-column m-2">
+                        <div><label> Bildkälla </label></div>
+                        <input name="imgUrl" id="imgUrl" value=" <%= imageUrl %>" />
+                    </div>
+                    <div class="m-2">
+                        <div><label> Namn </label></div>
+                        <input name="name" id="name" value="<%= name %>" />
+                    </div>
+                </div>
+                <div class="row p-3 justify-content-center">
+                    <div class="m-2">
+                        <div><label> Kateogrier </label></div>
+                        <% const categories = restaurant !== null ? restaurant.Categories : '' %>
+                        <input name="categories" id="categories" value="<%= categories %>" />
+                    </div>
+                    <div class="m-2">
+                        <div><label>Adress</label></div>
+                        <% const location = restaurant !== null ? restaurant.Location : '' %>
+                        <input name="location" id="location" value="<%= location %>" />
+                    </div>
+                </div>
+                <div class=" w-75 d-flex flex-column align-items-flex-start ml-5">
+                <div><label class="selected-label"> Prisklass </label></div>
+                <% const priceClass = restaurant !== null ? restaurant.PriceClass : '' %>
+                    <select class="w-25 selected" name="priceClass" id="priceClass">
+                        <option selected="<%= (priceClass == 1) %>" value="1"> $ </option>
+                        <option selected="<%= (priceClass == 2) %>" value="2"> $ $ </option>
+                        <option selected="<%= (priceClass == 3) %>" value="3"> $ $ $ </option>
+                    </select name="categories" id="categories">
+                </div>
+                <div class="d-flex justify-content-center mt-5"><button class="btn btn-primary w-25" type="submit">Spara</button></div>
+        </form>
+</div>
+</body >
+</html>

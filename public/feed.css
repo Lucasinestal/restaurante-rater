@@ -1,0 +1,157 @@
+body {
+    background-color: #121212;
+    font-family: "Lato";
+  }
+
+  .bg-grey{
+    background-color: rgba(255, 255, 255, 0.041);
+  }
+
+  body img {
+    filter: grayscale(30%);
+  }
+  .btn-wrapper{
+    background: transparent;
+    border: 0px;
+  }
+  .options ul li{
+ list-style: none;
+ cursor: pointer;
+
+  }
+  a{
+    color: #EEE;
+    text-decoration: none;
+  }
+  .login-section{
+    margin: 20vh auto;
+  }
+  #addRestaurantContainer{
+    width:50%;
+   }
+  #rateBtn{
+    margin-right: 23vw;
+  }
+  .content{
+    margin-top: 12vh;
+  }
+  .selected{
+    margin-left: 6vw;
+  }
+
+  .selected-label{
+    margin-left: 6vw;
+  }
+  
+  .review-card {
+    position: relative;
+    width: 500px;
+    margin: 10px auto;
+    border-radius: 5px;
+    height: 150px;
+    padding: 10px;
+    display: inline-flex;
+  }
+  .review-info {
+    padding: 0px 10px;
+  }
+  .rating-numeric {
+    font-weight: 600;
+    color: #222222c9;
+  }
+  .review-info .title {
+    font-size: 24px;
+    text-align: left;
+  }
+  .review-info a {
+    color: gray;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 23px;
+  }
+  .review-info i {
+    color: #3b3a3ad9;
+    font-size: 12px;
+  }
+  .review-thumbnail {
+    width: 150px;
+    height: 150px;
+  }
+  .review-thumbnail img {
+    height: auto;
+    width: 100%;
+  }
+  .star {
+    color: #ddd019d9 !important;
+    font-size: initial !important;
+  }
+  .dot {
+    font-size: 10px;
+    line-height: 23px;
+    color: #3b3a3ad9;
+  }
+  .col {
+    margin: 4px 0px;
+    width: 100%;
+    display: inline-flex;
+    text-align: left;
+  }
+  .col div {
+    margin-right: 4px;
+  }
+  .toolbar {
+    position: absolute;
+    left: 80%;
+    top: 5px;
+  }
+  .toolbar .col i {
+    color: #6e6d6d;
+    cursor: pointer;
+    padding: 8px 9px;
+  }
+  .toolbar /* .col i .fa  */.fa-pen:hover {
+    transform: rotate(25deg);
+    color: #fff;
+    background: rgb(0, 132, 255);
+    padding: 8px 9px;
+    border-radius: 50%;
+  }
+  .toolbar /* .col i .fa  */.fa-trash:hover {
+      transform: rotate(45deg);
+      color: #fff;
+      background: rgba(206, 46, 7, 0.726);
+      padding: 8px 9px;
+      border-radius: 50%;
+    }
+  
+
+    @media only screen and (max-width: 600px) {
+
+      
+      .review-card {
+        width: 100%;
+        padding:3px;
+      }
+      .review-info .title{
+        font-size:17px;
+      }
+      .restaurant-category {
+        font-size:14px;
+      }
+      .location{
+        font-size:14px;
+      }
+
+      .col{
+       margin:0;
+       padding: 0px;
+      }
+      #addRestaurantContainer{
+        width:100%;
+       }
+    }
+    @media only screen and (max-width: 900px) {
+      #addRestaurantContainer{
+        width:100%;
+       }
+    }
