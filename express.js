@@ -46,7 +46,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    port: "10003",
+    port: process.env.PORT || "10003",
     database: "restaurantschema"
 });
 
